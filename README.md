@@ -117,7 +117,21 @@ To run this project locally, you will need to add the following environment vari
 #### Note: Also, you will need to update   localhost:${port_number}
 
 ## Screenshots
+### Mongo DB record for an Products
 
+![App Screenshot](./screenshots/assetDbRecord.jpg)
+
+### Mongo DB record for an asset soft delete
+
+![App Screenshot](./screenshots/assetSoftDeleteDbRecord.jpg)
+
+### Asset Folder Name as the uploaded folder in AWS S3 Bucket
+
+![App Screenshot](./screenshots/assetBucketRecord.jpg)
+
+## cURL - Refer Api Reference as well
+
+### create a user
 
 
 ```bash
