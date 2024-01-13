@@ -69,7 +69,7 @@ try {
       if (!result) {
         return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
       }
-      return res.status(202).json(new ApiResponse(true, "Delete Product And Their Varieant Successfully",''));
+      return res.status(202).json(new ApiResponse(true, " Product And Their Varieant Deleted  Successfully",''));
 } catch (err) {
   return res.status(err.status ?? 500).json(new ErrorHandle(false, "Internal server error", err ?? err.error[0].msg ?? err.error[0].message))
 }
@@ -81,6 +81,7 @@ try {
 try {
       const productId=req.params.id;
       const result = await this.productRepository.getProduct(productId);
+      console.log(result);
       if (!result) {
         return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
       }
@@ -113,7 +114,7 @@ try {
       if (!result) {
         return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
       }
-      return res.status(202).json(new ApiResponse(true, "Deleted Successfully ",{}));
+      return res.status(202).json(new ApiResponse(true, "Variant Deleted Successfully ",{}));
 } catch (err) {
   return res.status(err.status ?? 500).json(new ErrorHandle(false, "Internal server error", err ?? err.error[0].msg ?? err.error[0].message))
 }  

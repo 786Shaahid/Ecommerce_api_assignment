@@ -3,7 +3,7 @@ import env from './src/config/environment.config.js'
 import { connectDB } from "./src/config/db.config.js";
 import productRouter from "./src/features/products/products.routes.js";
 
-const port=process.env.PORT
+const port=process.env.PORT || 8050
 /** CONFIGURATION */
 const app = express();
 app.use(express.json());

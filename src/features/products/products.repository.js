@@ -127,8 +127,10 @@ export default class ProductRepository {
   }
   /** 8. Define Repository For Delete variant */
   async deleteVar(query) {
+    // console.log(query);
     try {
         const result = await Variant.findOneAndDelete({sku:query});
+        console.log(result);
         return result;
     } catch (error) {
       console.log(error);

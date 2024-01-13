@@ -1,6 +1,7 @@
 import env from './environment.config.js'
 import mongoose from "mongoose";
 const url=process.env.DB_URL;
+//  console.log(env,url);
 export const connectDB = () => {
   return new Promise(async (resolve, reject) => {
     try {

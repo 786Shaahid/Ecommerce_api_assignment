@@ -13,7 +13,7 @@ productRouter.post("/addProduct", validateProduct,(req, res) => {
   });
 productRouter.post("/addVariant/:id",(req, res) => {
     productController.addVariant(req, res);
-  });
+  }); 
 productRouter.post("/updateProduct/:id", (req, res) => {
     productController.updateProduct(req, res);
   });
@@ -29,7 +29,7 @@ productRouter.get("/getProduct/:id", (req, res) => {
 productRouter.get("/searchProduct", (req, res) => {
     productController.searchProduct(req, res);
   });
-productRouter.get("/deleteVariant", (req, res) => {
+productRouter.delete("/deleteVariant", (req, res) => {
     productController.deleteVariant(req, res);
   });
 
