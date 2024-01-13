@@ -119,45 +119,40 @@ To run this project locally, you will need to add the following environment vari
 ## Screenshots
 ### Mongo DB record for an Products
 
-![App Screenshot](./screenshots/assetDbRecord.jpg)
+![App Screenshot](./screenshort/mongoA.jpg)
+ 
+### Mongo DB record for an Variants
 
-### Mongo DB record for an asset soft delete
+![App Screenshot](./screenshort/mongoB.jpg)
 
-![App Screenshot](./screenshots/assetSoftDeleteDbRecord.jpg)
+### Add the product 
+#### URL = "http://localhost:7080/api/products/addProduct"
+![App Screenshot](./screenshort/addProduct.jpg)
 
-### Asset Folder Name as the uploaded folder in AWS S3 Bucket
+### Add the Variant
+#### URL = "http://localhost:7080/api/products/addVariant/65a2800d592307f1c9ae1a6c"
+![App Screenshot](./screenshort/addVariants.jpg)
 
-![App Screenshot](./screenshots/assetBucketRecord.jpg)
+### Update The Product 
+#### URL = "http://localhost:7080/api/products/updateProduct/65a281bb592307f1c9ae1a70"
+![App Screenshot](./screenshort/updateProduct.jpg)
 
-## cURL - Refer Api Reference as well
+### Update The Variant 
+#### URL = "http://localhost:7080/api/products/updateVariant/65a281bb592307f1c9ae1a70?sku=Apple-A1-01"
+![App Screenshot](./screenshort/updateVariant.jpg)
+### Delete The Product 
+#### URL = "http://localhost:7080/api/products/deleteProduct/65a281bb592307f1c9ae1a70"
+![App Screenshot](./screenshort/deleteProduct.jpg)
 
-### create a user
+### Delete The Variant 
+#### URL = "http://localhost:7080/api/products/deleteVariant?query=killer-xl-01"
+![App Screenshot](./screenshort/deleteVariant.jpg)
 
+### Filter The Project Passing The Name, Description And Variant Name
+#### URL = http://localhost:7080/api/products/searchProduct?query=lenovo
+![App Screenshot](./screenshort/filterProduct.jpg)
 
-```bash
-  curl --location 'https://asset-management-0au6.onrender.com/api/v1/user/create' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'name=****' \
---data-urlencode 'email=******' \
---data-urlencode 'password=*****'
-```
+### Get Product With Variant 
+#### URL = http://localhost:7080/api/products/getProduct/65a2800d592307f1c9ae1a6c
+![App Screenshot](./screenshort/getProducts.jpg)
 
-### login a user
-
-```bash
-  curl --location 'https://asset-management-0au6.onrender.com/api/v1/auth/login' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'email=**********' \
---data-urlencode 'password=*******'
-```
-
-### create an asset
-
-```bash
- curl --location 'https://asset-management-0au6.onrender.com/api/v1/asset/create/647a68e7be01b54e1ab9dd10' \
---header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0N2E2OGU3YmUwMWI1NGUxYWI5ZGQxHCIsImlhdCI6MTY4NTkxNDc4N30.M1jrZBHBrA7uiqOFydbjZ7hHgMhSEZ0bfJA6Tv6i79Q' \
---form 'folder=@"/D:/Assinments - Company/Terra/Test.zip"' \
---form 'name="hisham"' \
---form 'tags="dasd"' \
---form 'category="asda"'
-```
