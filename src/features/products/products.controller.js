@@ -84,7 +84,7 @@ try {
       if (!result) {
         return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
       }
-      return res.status(202).json(new ApiResponse(true, "Get Product And Their Varieant Successfully",result[0]));
+      return res.status(200).json(new ApiResponse(true, "Get Product And Their Varieant Successfully",result[0]));
 } catch (err) {
   // console.log();
   return res.status(err.status ?? 500).json(new ErrorHandle(false, "Internal server error", err ?? err.error[0].msg ?? err.error[0].message))
@@ -94,14 +94,27 @@ try {
   /**  7.  Define Controller For The Get  Product with their variant */
   async searchProduct(req, res) {
 try {
-      const productId=req.params.id;
-      const result = await this.productRepository.search(productId);
+      const {query}=req.query;
+      const result = await this.productRepository.search(query);
       if (!result) {
         return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
       }
-      return res.status(202).json(new ApiResponse(true, "Get Product And Their Varieant Successfully",result));
+      return res.status(200).json(new ApiResponse(true, "Get Product Or Variant Successfully",result));
 } catch (err) {
   // console.log();
+  return res.status(err.status ?? 500).json(new ErrorHandle(false, "Internal server error", err ?? err.error[0].msg ?? err.error[0].message))
+}  
+  }
+  /**  8.  Define Controller For The Delete Variant with Query  */
+  async deleteVariant(req, res) {
+try {
+      const {query}=req.query;
+      const result = await this.productRepository.deleteVar(query);
+      if (!result) {
+        return res.status(400).json(new ErrorHandle(false, 'Something went wronge',{}));
+      }
+      return res.status(202).json(new ApiResponse(true, "Deleted Successfully ",{}));
+} catch (err) {
   return res.status(err.status ?? 500).json(new ErrorHandle(false, "Internal server error", err ?? err.error[0].msg ?? err.error[0].message))
 }  
   }

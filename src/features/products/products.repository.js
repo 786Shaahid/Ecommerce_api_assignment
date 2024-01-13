@@ -104,9 +104,32 @@ export default class ProductRepository {
   }
 
   /** 7. Define Repository For Search Query */
-  async search(productId) {
+  async search(query) {
     try {
+      const products = await Product.find({
+        $or: [
+          { name: { $regex: new RegExp(query, 'i') } },
+          { description: { $regex: new RegExp(query, 'i') } },
+        ],
+      });
 
+      const variantResults = await Variant.find({
+        name: { $regex: new RegExp(query, 'i') },
+      }).populate('productId');
+      
+      const combinedResults = [...products, ...variantResults.map((variant) => variant.productId)];
+      // console.log(combinedResults);
+      return combinedResults;
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
+  /** 8. Define Repository For Delete variant */
+  async deleteVar(query) {
+    try {
+        const result = await Variant.findOneAndDelete({sku:query});
+        return result;
     } catch (error) {
       console.log(error);
     }

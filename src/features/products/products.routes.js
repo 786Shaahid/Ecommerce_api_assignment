@@ -26,8 +26,11 @@ productRouter.delete("/deleteProduct/:id", (req, res) => {
 productRouter.get("/getProduct/:id", (req, res) => {
     productController.retrieveProduct(req, res);
   });
-productRouter.get("/searchProduct/:id", (req, res) => {
+productRouter.get("/searchProduct", (req, res) => {
     productController.searchProduct(req, res);
+  });
+productRouter.get("/deleteVariant", (req, res) => {
+    productController.deleteVariant(req, res);
   });
 
 
